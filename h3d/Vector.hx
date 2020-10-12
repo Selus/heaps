@@ -38,6 +38,11 @@ class Vector {
 		return new Vector(x + v.x, y + v.y, z + v.z, w + v.w);
 	}
 
+	public inline function multiply( v : Float ) {
+		// multiply only affects length
+		return new Vector(x * v, y * v, z * v, w);
+	}
+
 	// note : cross product is left-handed
 	public inline function cross( v : Vector ) {
 		return new Vector(y * v.z - z * v.y, z * v.x - x * v.z,  x * v.y - y * v.x, 1);

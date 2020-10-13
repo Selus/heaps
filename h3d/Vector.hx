@@ -161,6 +161,14 @@ class Vector {
 		w = pw;
 	}
 
+	public inline function limit(max:Float) {
+		if(length() > max) {
+		  normalize();
+		  return multiply(max);
+		}
+		return this;
+	  }
+
 	public inline function clone() {
 		return new Vector(x,y,z,w);
 	}
@@ -168,6 +176,10 @@ class Vector {
 	public inline function toPoint() {
 		return new h3d.col.Point(x, y, z);
 	}
+
+	public inline function toPoint2d() {
+		return new h2d.col.Point(x, y);
+  	}
 
 	public function toString() {
 		return '{${x.fmt()},${y.fmt()},${z.fmt()},${w.fmt()}}';
